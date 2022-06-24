@@ -6,8 +6,7 @@
 //
 
 #import "ViewController.h"
-#import <React/RCTRootView.h>
-
+#import "HLRnRouterManager.h"
 
 @interface ViewController ()
 @property(nonatomic,strong)UIButton *jumpRnBtn;
@@ -44,27 +43,20 @@
 
 - (void)jumpRnBtnClick
 {
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
-    RCTRootView *rootView =
-      [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
-                                  moduleName: @"RNHighScores"
-                           initialProperties:
-                             @{
-                               @"scores" : @[
-                                 @{
-                                   @"name" : @"Alex",
-                                   @"value": @"42"
-                                  },
-                                 @{
-                                   @"name" : @"Joel",
-                                   @"value": @"100"
-                                 }
-                               ]
-                             }
-                               launchOptions: nil];
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view = rootView;
-    [self.navigationController pushViewController:vc animated:YES];
+    NSDictionary *prop = @{
+        @"scores" : @[
+          @{
+            @"name" : @"Alex",
+            @"value": @"42"
+           },
+          @{
+            @"name" : @"Joel",
+            @"value": @"100"
+          }
+        ]
+    };
+    [[HLRnRouterManager shareInstance] openRNWithModuleName:@"RNHighScores" prop:prop];
+
 }
 
 @end
