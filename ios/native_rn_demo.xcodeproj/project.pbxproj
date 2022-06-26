@@ -15,6 +15,8 @@
 		1F901ED328635E3D00313336 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F901ED228635E3D00313336 /* Assets.xcassets */; };
 		1F901ED628635E3D00313336 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F901ED428635E3D00313336 /* LaunchScreen.storyboard */; };
 		1F901ED928635E3D00313336 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F901ED828635E3D00313336 /* main.m */; };
+		1FBAC726286600C2003220A2 /* HLRnRouterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FBAC725286600C2003220A2 /* HLRnRouterManager.m */; };
+		1FBAC72D28660417003220A2 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FBAC72C28660417003220A2 /* NavigationManager.m */; };
 		ECD282436E7C193285A46165 /* libPods-native_rn_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE0C6C282B451BA851808F7 /* libPods-native_rn_demo.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,10 @@
 		1F901ED528635E3D00313336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F901ED728635E3D00313336 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F901ED828635E3D00313336 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FBAC724286600C2003220A2 /* HLRnRouterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLRnRouterManager.h; sourceTree = "<group>"; };
+		1FBAC725286600C2003220A2 /* HLRnRouterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLRnRouterManager.m; sourceTree = "<group>"; };
+		1FBAC72B28660417003220A2 /* NavigationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
+		1FBAC72C28660417003220A2 /* NavigationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		8CE0C6C282B451BA851808F7 /* libPods-native_rn_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-native_rn_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65632DF28386F0CF4A85275 /* Pods-native_rn_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-native_rn_demo.debug.xcconfig"; path = "Target Support Files/Pods-native_rn_demo/Pods-native_rn_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		F007E11908C602A418887850 /* Pods-native_rn_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-native_rn_demo.release.xcconfig"; path = "Target Support Files/Pods-native_rn_demo/Pods-native_rn_demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 		1F901EC228635E3B00313336 /* native_rn_demo */ = {
 			isa = PBXGroup;
 			children = (
+				1FBAC72728660382003220A2 /* Utils */,
+				1FBAC72028660046003220A2 /* Router */,
 				1F901EC328635E3B00313336 /* AppDelegate.h */,
 				1F901EC428635E3B00313336 /* AppDelegate.m */,
 				1F901EC628635E3B00313336 /* SceneDelegate.h */,
@@ -86,13 +94,38 @@
 			path = native_rn_demo;
 			sourceTree = "<group>";
 		};
+		1FBAC72028660046003220A2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1FBAC724286600C2003220A2 /* HLRnRouterManager.h */,
+				1FBAC725286600C2003220A2 /* HLRnRouterManager.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		1FBAC72728660382003220A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1FBAC7282866038F003220A2 /* Navigation */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1FBAC7282866038F003220A2 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1FBAC72B28660417003220A2 /* NavigationManager.h */,
+				1FBAC72C28660417003220A2 /* NavigationManager.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		248816E2616070913A174ED8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				E65632DF28386F0CF4A85275 /* Pods-native_rn_demo.debug.xcconfig */,
 				F007E11908C602A418887850 /* Pods-native_rn_demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,8 +271,10 @@
 			files = (
 				1F901ED928635E3D00313336 /* main.m in Sources */,
 				1F901ECB28635E3B00313336 /* ViewController.m in Sources */,
+				1FBAC726286600C2003220A2 /* HLRnRouterManager.m in Sources */,
 				1F901ED128635E3B00313336 /* native_rn_demo.xcdatamodeld in Sources */,
 				1F901EC528635E3B00313336 /* AppDelegate.m in Sources */,
+				1FBAC72D28660417003220A2 /* NavigationManager.m in Sources */,
 				1F901EC828635E3B00313336 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
