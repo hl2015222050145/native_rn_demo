@@ -28,26 +28,7 @@
 
 - (UINavigationController *)currentNavgationController
 {
-    UIWindow *windows = nil;
-    if (@available(iOS 15, *)) {
-           __block UIScene * _Nonnull tmpSc;
-            [[[UIApplication sharedApplication] connectedScenes] enumerateObjectsUsingBlock:^(UIScene * _Nonnull obj, BOOL * _Nonnull stop) {
-                if (obj.activationState == UISceneActivationStateForegroundActive) {
-                    tmpSc = obj;
-                    *stop = YES;
-                }
-            }];
-            UIWindowScene *curWinSc = (UIWindowScene *)tmpSc;
-            windows = curWinSc.keyWindow;
-        } else {
-            windows = [UIApplication sharedApplication].windows.firstObject;
-        }
-
-    if (![windows isKindOfClass:[UIWindow class]]) {
-        NSLog(@"未获取到导航控制器");
-        return nil;
-    }
-    
+    UIWindow *windows = UIApplication.sharedApplication.delegate.window;
     UIViewController *rootViewController = windows.rootViewController;
     return [self getCurrentNavigationFrom:rootViewController];
 }

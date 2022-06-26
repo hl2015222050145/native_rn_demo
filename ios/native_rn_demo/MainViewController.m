@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  native_rn_demo
 //
 //  Created by huanglin on 2022/6/22.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "HLRnRouterManager.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 @property(nonatomic,strong)UIButton *jumpRnBtn;
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
